@@ -4,16 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="/css/app.css" rel="stylesheet">
-
-        <!-- Styles -->
+        <title>@yield('title', 'Laravel Blog')</title>
+        <link href="{{asset('css/app.css')}}" rel="stylesheet">
     </head>
     <body>
-        <div class="flex justify-center">
-            <p class="text-xl text-gray-700">Hello World</p>
+        <div id="app">
+            <Navbar></Navbar>
+            @yield('content')
         </div>
     </body>
+    <script src="{{asset('js/app.js')}}"></script>
 </html>
