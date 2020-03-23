@@ -20184,7 +20184,7 @@ var render = function() {
     "header",
     {
       staticClass:
-        "bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3"
+        "bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30"
     },
     [
       _c(
@@ -20228,7 +20228,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass: "block px-2 rounded hover:bg-gray-600",
+              staticClass: "block px-2 hover:bg-gray-600",
               attrs: { href: "/" }
             },
             [_vm._v("Home")]
@@ -20237,8 +20237,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass:
-                "block px-2 mt-1 sm:mt-0 sm:ml-2 rounded hover:bg-gray-600",
+              staticClass: "block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600",
               attrs: { href: "/about" }
             },
             [_vm._v("About Me")]
@@ -20247,8 +20246,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass:
-                "block px-2 mt-1 sm:mt-0 sm:ml-2 rounded hover:bg-gray-600",
+              staticClass: "block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600",
               attrs: { href: "/contact" }
             },
             [_vm._v("Contact")]

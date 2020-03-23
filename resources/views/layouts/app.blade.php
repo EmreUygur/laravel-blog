@@ -10,7 +10,9 @@
     <body>
         <div id="app">
             <Navbar></Navbar>
-            @yield('content')
+            <div class="m-16">
+                @yield('content')
+            </div>
         </div>
     </body>
     <script src="{{asset('js/app.js')}}"></script>

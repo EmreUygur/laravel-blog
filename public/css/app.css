@@ -13946,6 +13946,24 @@ video {
   transition-duration: 1000ms;
 }
 
+body {
+  margin: 0;
+}
+
+#bg-homepage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center center;
+  object-position: center center;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
