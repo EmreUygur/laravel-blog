@@ -17,11 +17,11 @@ class CreateJobsTable extends Migration
             $table->bigIncrements('id');
             $table->string('company');
             $table->string('position');
-            $table->string('reference_name');
-            $table->string('reference_phone');
+            // $table->string('reference_name');
+            // $table->string('reference_phone');
             $table->text('note')->nullable();
-            $table->date('started_at');
-            $table->date('quitted_at');
+            $table->string('started_at');
+            $table->string('quitted_at');
         });
     }
 

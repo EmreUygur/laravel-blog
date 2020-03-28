@@ -19,8 +19,8 @@ class CreateEducationTable extends Migration
             $table->string('department_name');
             $table->string('gpa')->nullable();
             $table->text('note')->nullable();
-            $table->date('started_at');
-            $table->date('finished_at')->nullable();
+            $table->string('started_at');
+            $table->string('finished_at')->nullable();
         });
     }
 
