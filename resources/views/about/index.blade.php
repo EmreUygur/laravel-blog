@@ -57,7 +57,7 @@
 
                         <div class="school flex-flex-col">
                             <div class="school-title text-xl font-medium">Polytechnic Institute of Coimbra</div>
-                            <div class="text-gray-600 text-lg px-1">Front-end Developer</div>
+                            <div class="text-gray-600 text-lg px-1">Computer Engineering</div>
                             <div class="text-gray-600 text-md px-1">09/2016 - 08/2017</div>
                             <div class="note text-gray-600 text-sm px-1">Erasmus Student Mobility</div>
                         </div>
