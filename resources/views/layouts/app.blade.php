@@ -7,12 +7,9 @@
         <title>@yield('title', 'Laravel Blog')</title>
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
     </head>
-    <body>
+    <body style="background-color: @yield('bg-color', '#f8f8f8')">
         <div id="app">
-            <Navbar></Navbar>
-            <div class="m-16">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </body>
     <script src="{{asset('js/app.js')}}"></script>
