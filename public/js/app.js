@@ -1926,6 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20192,7 +20193,7 @@ var render = function() {
         { staticClass: "flex justify-between items-center px-4 py-3 sm:p-0" },
         [
           _c("div", { staticClass: "text-gray-200 font-bold text-lg" }, [
-            _vm._v("My Navbar")
+            _vm._v("Emre UYGUR")
           ]),
           _vm._v(" "),
           _c(
@@ -20241,6 +20242,15 @@ var render = function() {
               attrs: { href: "/about" }
             },
             [_vm._v("About Me")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600",
+              attrs: { href: "/blog" }
+            },
+            [_vm._v("Blog")]
           ),
           _vm._v(" "),
           _c(

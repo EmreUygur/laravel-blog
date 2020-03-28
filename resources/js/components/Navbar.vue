@@ -1,7 +1,7 @@
 <template>
     <header class="bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30">
       <div class="flex justify-between items-center px-4 py-3 sm:p-0">
-        <div class="text-gray-200 font-bold text-lg">My Navbar</div>
+        <div class="text-gray-200 font-bold text-lg">Emre UYGUR</div>
         <div v-bind:class="{change: menuToggle}" @click="menuToggle = !menuToggle" class="hamburger-menu-container inline-block sm:hidden">
             <div class="bar1 bg-gray-200"></div>
             <div class="bar2 bg-gray-200"></div>
@@ -11,6 +11,7 @@
       <div v-bind:class="{hidden: !menuToggle}" class="text-gray-200 font-semibold px-2 pb-4 pt-1 sm:flex sm:p-0">
           <a href="/" class="block px-2 hover:bg-gray-600">Home</a>
           <a href="/about" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">About Me</a>
+          <a href="/blog" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Blog</a>
           <a href="/contact" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Contact</a>
       </div>
     </header>
