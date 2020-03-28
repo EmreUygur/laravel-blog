@@ -23,3 +23,15 @@ body {
     opacity: .3;
     pointer-events: none;
 }
+
+.job, .school {
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #cbd5e0;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.job:last-child, .school:last-child {
+    border-bottom: none;
+    margin-bottom: .5rem;
+    padding-bottom: 0;
+}

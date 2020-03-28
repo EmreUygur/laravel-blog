@@ -13964,6 +13964,18 @@ body {
   pointer-events: none;
 }
 
+.job, .school {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #cbd5e0;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.job:last-child, .school:last-child {
+  border-bottom: none;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
