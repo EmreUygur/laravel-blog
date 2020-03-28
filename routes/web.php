@@ -15,10 +15,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
+
+Route::get('/about', 'MainController@index');
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::get('/blog', function () {
+    return view('blog.index');
 });
