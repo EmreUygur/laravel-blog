@@ -11,7 +11,7 @@
                 <div class="text-2xl font-semibold select-none">>_whoami</div>
                 <div>
                     @if ($biography)
-                        {{ $biography->biography }}
+                        {!! $biography->biography !!}
                     @else
                         Biography is not entered yet...
                     @endif
