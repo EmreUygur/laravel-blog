@@ -31,7 +31,7 @@
             </div>
             <div class="m-2 flex flex-col">
                 <label for="note">Additional Notes</label>
-                <textarea name="note" class="border rounded border-gray-200 p-1 focus:border-blue-200" id="note" rows="3"></textarea>
+                <textarea name="note" class="border rounded border-gray-200 p-1 focus:border-blue-200 resize-none" id="note" rows="3"></textarea>
             </div>
             <div class="m-2">
                 <button type="submit" class="px-2 py-1 bg-blue-600 text-white rounded focus:border-blue-200">Submit</button>
