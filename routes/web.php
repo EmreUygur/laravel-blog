@@ -11,19 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
-// Route::get('/about', function () {
-//     return view('about');
-// });
+Route::get('/', 'MainController@home');
+Route::get('/about', 'MainController@about');
+Route::get('/contact', 'MainController@contact');
 
-Route::get('/about', 'MainController@index');
+Route::get('/about/biography/create', 'BiographyController@create');
+Route::post('/about/biography', 'BiographyController@store');
+Route::get('/about/biography/edit', 'BiographyController@edit');
+Route::put('/about/biography/{biography}', 'BiographyController@update');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/about/job/create', 'JobController@create');
+Route::post('/about/job', 'JobController@store');
+Route::get('/about/job/{job}/edit', 'JobController@edit');
+Route::put('/about/job/{job}', 'JobController@update');
+
+Route::get('/about/education/create', 'EducationController@create');
+Route::post('/about/education', 'EducationController@store');
+Route::get('/about/education/{education}/edit', 'EducationController@edit');
+Route::put('/about/education/{education}', 'EducationController@update');
+
 
 Route::get('/blog', function () {
     return view('blog.index');
