@@ -9,16 +9,17 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function home () 
+    {
+        return view('index');
+    }
+    
+    public function about()
     {
         $biography = Biography::first();
-        $jobs = Biography::all();
-        $educations = Biography::all();
+        $jobs = Job::orderby('id', 'desc')->get();
+        $educations = Education::orderby('finished_at', 'desc')->get();
+
 
         return view('about.index', [
             'biography' => $biography,
@@ -27,69 +28,8 @@ class MainController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function contact() 
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Biography  $biography
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Biography $biography)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Biography  $biography
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Biography $biography)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Biography  $biography
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Biography $biography)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Biography  $biography
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Biography $biography)
-    {
-        //
+        return view('contact');
     }
 }
