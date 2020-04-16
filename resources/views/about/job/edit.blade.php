@@ -48,7 +48,7 @@
             </div>
             <div class="m-2 flex flex-col">
                 <label for="note">Additional Notes</label>
-                <textarea class="border rounded border-gray-200 p-1 focus:border-blue-200" id="note" name="note" rows="3">
+                <textarea class="border rounded border-gray-200 p-1 focus:border-blue-200 resize-none" id="note" name="note" rows="3">
                     {{ $job->note ? $job->note : '' }}
                 </textarea>
                 @error('note')
