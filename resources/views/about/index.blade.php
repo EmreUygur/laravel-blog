@@ -8,7 +8,10 @@
     <div class="flex flex-wrap justify-center items-stretch z-10">
         <div class="w-full pb-4 lg:w-1/3 lg:pr-4 lg:pb-0">
             <div class="p-4 text-gray-700 w-full h-full rounded bg-white">
-                <div class="text-2xl font-semibold select-none">>_whoami</div>
+                <div class="flex justify-start items-end mb-3">
+                    <img class="w-1/4 rounded-full mr-2" draggable="false" src="{{ asset('images/avatar.jpg') }}" alt="avatar">
+                    <div class="text-2xl font-semibold select-none">>_whoami</div>
+                </div>
                 <div>
                     @if ($biography)
                         {!! $biography->biography !!}
