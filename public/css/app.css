@@ -13950,6 +13950,10 @@ body {
   margin: 0;
 }
 
+a {
+  outline: none;
+}
+
 #bg-homepage {
   position: fixed;
   top: 0;
