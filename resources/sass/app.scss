@@ -6,6 +6,9 @@
 @import "tailwindcss/utilities";
 
 // Our SCSS
+
+$lightGray: #edf2f7;
+
 body {
     margin: 0;
 }
@@ -34,4 +37,16 @@ body {
     border-bottom: none;
     margin-bottom: .5rem;
     padding-bottom: 0;
+}
+
+::placeholder {
+    color: $lightGray;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $lightGray;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $lightGray;
 }
