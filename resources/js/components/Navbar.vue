@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30">
+    <header class="bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30 select-none">
       <div class="flex justify-between items-center px-4 py-3 sm:p-0">
         <div class="text-gray-200 font-bold text-lg">Emre UYGUR</div>
         <div v-bind:class="{change: menuToggle}" @click="menuToggle = !menuToggle" class="hamburger-menu-container inline-block sm:hidden">
