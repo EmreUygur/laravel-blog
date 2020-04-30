@@ -31,7 +31,9 @@ Route::post('/about/education', 'EducationController@store');
 Route::get('/about/education/{education}/edit', 'EducationController@edit');
 Route::put('/about/education/{education}', 'EducationController@update');
 
-
-Route::get('/blog', function () {
-    return view('blog.index');
-});
+Route::get('/blog', 'ArticleController@index');
+Route::get('/blog/article/create', 'ArticleController@create');
+Route::get('/blog/article/{id}', 'ArticleController@show');
+Route::post('/blog/article', 'ArticleController@store');
+Route::get('/blog/article/{article}/edit', 'ArticleController@edit');
+Route::put('/blog/article/{article}', 'ArticleController@update');
