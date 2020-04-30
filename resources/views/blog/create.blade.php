@@ -6,7 +6,7 @@
 
 @section('layoutContent')
     <div class="text-2xl font-semibold text-gray-700">Create An Article</div>
-    <form method="POST" action="/blog/article">
+    <form method="POST" action="/blog/articles">
         @csrf
         <div class="flex flex-col mt-6">
             <div class="m-2 flex flex-col">

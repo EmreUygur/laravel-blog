@@ -6,7 +6,7 @@
 
 @section('layoutContent')
     <div class="text-2xl font-semibold text-gray-700">Edit the Article</div>
-    <form method="POST" action="/blog/article/{{ $article->id }}">
+    <form method="POST" action="/blog/articles/{{ $article->id }}">
         @csrf
         @method('PUT')
         <div class="flex flex-col mt-6">
