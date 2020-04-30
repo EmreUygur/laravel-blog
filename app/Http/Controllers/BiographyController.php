@@ -23,7 +23,7 @@ class BiographyController extends Controller
     {
         return view('about/biography/edit', [
             'biography' => Biography::first()
-          ]);
+        ]);
     }
 
     public function update (Biography $biography) 
