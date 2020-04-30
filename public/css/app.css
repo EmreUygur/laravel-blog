@@ -13976,6 +13976,36 @@ body {
   padding-bottom: 0;
 }
 
+::-webkit-input-placeholder {
+  color: #edf2f7;
+}
+
+::-moz-placeholder {
+  color: #edf2f7;
+}
+
+:-ms-input-placeholder {
+  color: #edf2f7;
+}
+
+::-ms-input-placeholder {
+  color: #edf2f7;
+}
+
+::placeholder {
+  color: #edf2f7;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #edf2f7;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #edf2f7;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
