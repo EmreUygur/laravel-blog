@@ -44,19 +44,23 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
+        return view("blog.edit", [
+            "article" => $article
+        ]);
+    }
+
+
+    public function update(Article $article)
+    {
         $article->update(request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => ['required', 'min:3'],
             'body' => ['required', 'min:50']
         ]));
 
-        return redirect('/about');
-    }
-
-
-    public function update(Article $article)
-    {
-        //
+        return view('blog.show', [
+            "article" => $article
+        ]);
     }
 
 
