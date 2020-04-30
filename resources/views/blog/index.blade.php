@@ -12,9 +12,12 @@
                     <div class="text-3xl text-gray-700 font-semibold">
                         <a class="outline-none" href="/blog/article/{{ $article->id }}">{{ $article->title }}</a>
                     </div>
-                    <div class="text-gray-600 font-normal">
+                    <div class="flex flex-col text-gray-600 font-normal">
                         <p class="text-lg">
-                            {{ $article->excerpt }}
+                            {!! $article->excerpt !!}
+                        </p>
+                        <p class="text-sm mt-1">
+                            {{ date_format($article->created_at, 'd/m/Y') }}
                         </p>
                     </div>
                 </div>
