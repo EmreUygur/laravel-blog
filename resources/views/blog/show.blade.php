@@ -10,7 +10,7 @@
             <div class="text-2xl font-semibold">{{ $article->title }}</div>
             <div class="text-sm font-medium">{{ date_format($article->created_at, 'd/m/Y') }}</div>
         </div>
-        <div class="text-lg font-medium mb-2">{{ $article->excerpt }}</div>
+        <div class="text-xl font-medium mb-2">{{ $article->excerpt }}</div>
         <div>{!! $article->body !!}</div>
     </div>
 @endsection
