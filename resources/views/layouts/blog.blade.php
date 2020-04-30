@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    @yield('layoutTitile')
+    @yield('layoutTitle')
 @endsection
 
 @section('bg-color')
