@@ -27,68 +27,8 @@
                 No articles entered yet :/
             </div>
         @endif
-
-        {{-- <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col mb-8">
-            <div class="text-3xl text-gray-700 font-semibold">Title</div>
-            <div class="text-gray-600 font-normal">
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatum? Corporis similique, dolores commodi nulla quo modi nisi neque necessitatibus sint porro dignissimos voluptates laboriosam adipisci ab voluptate consectetur a!
-                </p>
-            </div>
-        </div> --}}
     </div>
+    <a href="/blog/articles/create" class="rounded-full h-12 w-12 m-2 bottom-0 right-0 fixed flex items-center justify-center bg-green-500 text-white">
+        <i class="fas fa-plus"></i>
+    </a>
 @endsection
