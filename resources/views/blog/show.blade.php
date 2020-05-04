@@ -16,7 +16,7 @@
             <div class="mt-6 flex flex-wrap">
                 @foreach ($article->tags as $tag)
                     <div class="text-medium ml-2">
-                        <a class="underline">{{ $tag->name }}</a>
+                        <a href="/blog?tag={{ $tag->name }}" class="underline">{{ $tag->name }}</a>
                     </div>
                 @endforeach
             </div>

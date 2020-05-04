@@ -11,8 +11,14 @@ class ArticleController extends Controller
 
     public function index()
     {
+        if (request('tag')) {
+            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
+        } else {
+            $articles = Article::latest()->get();
+        }
+
         return view('blog.index', [
-            "articles" => Article::all()
+            "articles" => $articles
         ]);
     }
 
