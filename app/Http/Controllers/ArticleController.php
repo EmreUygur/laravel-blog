@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -18,17 +19,19 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('blog.create');
+        return view('blog.create', [
+            "tags" => Tag::all()
+        ]);
     }
 
 
     public function store()
     {
-        Article::create(request()->validate([
-            'title' => ['required', 'min:3'],
-            'excerpt' => ['required', 'min:3'],
-            'body' => ['required', 'min:50']
-          ]));
+        
+        $article = new Article($this->validation());
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
     
         return redirect('/blog');    
     }
@@ -45,18 +48,18 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         return view("blog.edit", [
-            "article" => $article
+            "article" => $article,
+            "tags" => Tag::all()
         ]);
     }
 
 
     public function update(Article $article)
     {
-        $article->update(request()->validate([
-            'title' => ['required', 'min:3'],
-            'excerpt' => ['required', 'min:3'],
-            'body' => ['required', 'min:50']
-        ]));
+        $article->update($this->validation());
+
+        $article->tags()->detach();
+        $article->tags()->attach(request('tags'));
 
         return view('blog.show', [
             "article" => $article
@@ -67,5 +70,14 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function validation() {
+        return request()->validate([
+            'title' => ['required', 'min:3'],
+            'excerpt' => ['required', 'min:3'],
+            'body' => ['required', 'min:50'],
+            'tags' => 'exists:tags,id'
+        ]);
     }
 }

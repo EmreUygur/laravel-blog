@@ -12,5 +12,14 @@
         </div>
         <div class="text-xl font-medium mb-2">{{ $article->excerpt }}</div>
         <div>{!! $article->body !!}</div>
+        @if (count($article->tags))
+            <div class="mt-6 flex flex-wrap">
+                @foreach ($article->tags as $tag)
+                    <div class="text-medium ml-2">
+                        <a class="underline">{{ $tag->name }}</a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 @endsection
