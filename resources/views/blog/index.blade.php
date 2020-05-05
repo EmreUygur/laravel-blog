@@ -6,6 +6,13 @@
 
 @section('layoutContent')
     <div class="flex flex-col mx-16">
+        <div class="flex flex-wrap mb-4">
+            @if(count($tags))
+                @foreach ( $tags as $tag )
+                    <a href="/blog?tag={{ $tag->name }}" class="underline mr-2"> {{ $tag->name }}</a>                    
+                @endforeach
+            @endif
+        </div>
         @if(count($articles))
             @foreach ($articles as $article)
                 <div class="flex flex-col mb-8">

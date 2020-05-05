@@ -18,7 +18,8 @@ class ArticleController extends Controller
         }
 
         return view('blog.index', [
-            "articles" => $articles
+            "articles" => $articles,
+            "tags" => Tag::all()
         ]);
     }
 
