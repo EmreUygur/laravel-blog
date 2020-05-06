@@ -37,3 +37,4 @@ Route::get('/blog/articles/{id}', 'ArticleController@show');
 Route::post('/blog/articles', 'ArticleController@store');
 Route::get('/blog/articles/{article}/edit', 'ArticleController@edit');
 Route::put('/blog/articles/{article}', 'ArticleController@update');
+Route::delete('/blog/articles/{article}', 'ArticleController@destroy');
