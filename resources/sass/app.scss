@@ -8,6 +8,7 @@
 // Our SCSS
 
 $lightGray: #edf2f7;
+$yellow: #fff133;
 
 body {
     margin: 0;
@@ -15,6 +16,10 @@ body {
 
 a {
     outline: none;
+}
+
+.bg-blogNav, .bg-tag {
+    background-color: $yellow;
 }
 
 #bg-homepage {

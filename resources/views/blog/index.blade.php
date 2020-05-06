@@ -9,7 +9,7 @@
         <div class="flex flex-wrap mb-4">
             @if(count($tags))
                 @foreach ( $tags as $tag )
-                    <a href="/blog?tag={{ $tag->name }}" class="underline mr-2"> {{ $tag->name }}</a>                    
+                    <a href="/blog?tag={{ $tag->name }}" class="bg-tag py-1 px-2 rounded text-sm mr-2"> {{ $tag->name }}</a>
                 @endforeach
             @endif
         </div>

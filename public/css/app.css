@@ -13954,6 +13954,10 @@ a {
   outline: none;
 }
 
+.bg-blogNav, .bg-tag {
+  background-color: #fff133;
+}
+
 #bg-homepage {
   position: fixed;
   top: 0;

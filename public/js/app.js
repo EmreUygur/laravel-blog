@@ -1930,10 +1930,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20280,7 +20276,7 @@ var render = function() {
     "header",
     {
       staticClass:
-        "bg-white sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30 border-b border-gray-200 select-none"
+        "bg-blogNav sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30 select-none"
     },
     [
       _c(
@@ -20315,7 +20311,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "text-gray-700 bg-white font-semibold items-center px-2 pb-4 pt-1 sm:flex sm:p-0",
+            "text-gray-700 font-semibold items-center px-2 pb-4 pt-1 sm:flex sm:p-0",
           class: { hidden: !_vm.menuToggle }
         },
         [_vm._m(1)]
@@ -20353,14 +20349,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "px-2" }, [
-      _c("input", {
-        staticClass: "p-1 border-b border-gray-700 text-sm",
-        attrs: { type: "text", placeholder: "Search here" }
-      }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-search cursor-pointer" })
-    ])
+    return _c(
+      "div",
+      { staticClass: "flex flex-row px-2 items-center w-full sm:w-48" },
+      [
+        _c("input", {
+          staticClass:
+            "bg-transparent w-full p-1 border-b border-gray-700 text-sm",
+          attrs: { type: "text", placeholder: "Search here" }
+        }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-search cursor-pointer" })
+      ]
+    )
   }
 ]
 render._withStripped = true
