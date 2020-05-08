@@ -13958,6 +13958,14 @@ a {
   background-color: #fff133;
 }
 
+.tagsCard {
+  border: 2px #fff133 solid;
+}
+
+.tagsHeader {
+  background-color: #fff133;
+}
+
 #bg-homepage {
   position: fixed;
   top: 0;

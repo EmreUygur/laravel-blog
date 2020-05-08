@@ -22,6 +22,14 @@ a {
     background-color: $yellow;
 }
 
+.tagsCard {
+    border: 2px $yellow solid;
+}
+
+.tagsHeader {
+    background-color: $yellow;
+}
+
 #bg-homepage {
     position: fixed;
     top: 0;
