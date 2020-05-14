@@ -22,16 +22,18 @@
             </div>
         @endif
     </div>
-    <div class="flex flex-col bottom-0 right-0 fixed">
-        <form action="/blog/articles/{{ $article->id }}" method="POST">
-            @csrf
-            @method("DELETE")
-            <button type="submit" class="rounded-full h-12 w-12 my-1 mx-2 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white">
-                <i class="fas fa-trash"></i>
-            </button>
-        </form>
-        <a href="/blog/articles/{{ $article->id }}/edit" class="rounded-full h-12 w-12 my-1 mx-2 flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white">
-            <i class="fas fa-edit"></i>
-        </a>
-    </div>
+    @auth
+        <div class="flex flex-col bottom-0 right-0 fixed">
+            <form action="/blog/articles/{{ $article->id }}" method="POST">
+                @csrf
+                @method("DELETE")
+                <button type="submit" class="rounded-full h-12 w-12 my-1 mx-2 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </form>
+            <a href="/blog/articles/{{ $article->id }}/edit" class="rounded-full h-12 w-12 my-1 mx-2 flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white">
+                <i class="fas fa-edit"></i>
+            </a>
+        </div>
+    @endauth
 @endsection

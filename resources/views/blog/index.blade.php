@@ -43,7 +43,9 @@
             </div>
         </div>
     </div>
-    <a href="/blog/articles/create" class="rounded-full h-12 w-12 m-2 bottom-0 right-0 fixed flex items-center justify-center bg-green-500 text-white">
-        <i class="fas fa-plus"></i>
-    </a>
+    @auth
+        <a href="/blog/articles/create" class="rounded-full h-12 w-12 m-2 bottom-0 right-0 fixed flex items-center justify-center bg-green-500 text-white">
+            <i class="fas fa-plus"></i>
+        </a>
+    @endauth
 @endsection

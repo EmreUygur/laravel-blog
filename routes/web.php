@@ -32,9 +32,9 @@ Route::get('/about/education/{education}/edit', 'EducationController@edit');
 Route::put('/about/education/{education}', 'EducationController@update');
 
 Route::get('/blog', 'ArticleController@index');
-Route::get('/blog/articles/create', 'ArticleController@create');
+Route::get('/blog/articles/create', 'ArticleController@create')->middleware('auth');
 Route::get('/blog/articles/{id}', 'ArticleController@show');
-Route::post('/blog/articles', 'ArticleController@store');
-Route::get('/blog/articles/{article}/edit', 'ArticleController@edit');
-Route::put('/blog/articles/{article}', 'ArticleController@update');
-Route::delete('/blog/articles/{article}', 'ArticleController@destroy');
+Route::post('/blog/articles', 'ArticleController@store')->middleware('auth');
+Route::get('/blog/articles/{article}/edit', 'ArticleController@edit')->middleware('auth');
+Route::put('/blog/articles/{article}', 'ArticleController@update')->middleware('auth');
+Route::delete('/blog/articles/{article}', 'ArticleController@destroy')->middleware('auth');
