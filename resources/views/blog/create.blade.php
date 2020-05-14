@@ -23,7 +23,7 @@
             </div>
             <div class="m-2 flex flex-col">
                 <label for="tags[]">Tags</label>
-                <select id="tags[]" name="tags[]" class="border rounded border-gray-200 p-1 focus:border-blue-200" multiple>
+                <select id="tags[]" name="tags[]" class="border rounded border-gray-200 p-1 focus:border-blue-200 h-20" multiple>
                     @foreach ($tags as $tag)
                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                     @endforeach
