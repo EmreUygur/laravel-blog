@@ -9,20 +9,38 @@
         </div>
       </div>
       <div v-bind:class="{hidden: !menuToggle}" class="text-gray-200 font-semibold px-2 pb-4 pt-1 sm:flex sm:p-0">
-          <a href="/" class="block px-2 hover:bg-gray-600">Home</a>
-          <a href="/about" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">About Me</a>
-          <a href="/blog" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Blog</a>
-          <a href="/contact" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Contact</a>
+        <a href="/" class="block px-2 hover:bg-gray-600">Home</a>
+        <a href="/about" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">About Me</a>
+        <a href="/blog" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Blog</a>
+        <a href="/contact" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600">Contact</a>
+        <span v-if="isLogged">
+          <a @click="logout" class="block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600 cursor-pointer">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+          <form id="logoutForm" ref="logoutForm" action="/logout" method="POST" style="display: none;">
+              <input type="hidden" name="_token" v-bind:value="token">
+          </form>
+        </span>
       </div>
     </header>
 </template>
 
 <script>
 export default {
+  props: {
+    isLogged: Boolean,
+    token: String
+  },
   data () {
       return {
           menuToggle: false
       }
+  },
+  methods: {
+    logout: function (event) {
+      event.preventDefault();
+      this.$refs.logoutForm.submit();
+    }
   }
 }
 </script>

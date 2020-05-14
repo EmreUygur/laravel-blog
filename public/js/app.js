@@ -1969,11 +1969,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    isLogged: Boolean,
+    token: String
+  },
   data: function data() {
     return {
       menuToggle: false
     };
+  },
+  methods: {
+    logout: function logout(event) {
+      event.preventDefault();
+      this.$refs.logoutForm.submit();
+    }
   }
 });
 
@@ -20464,7 +20482,40 @@ var render = function() {
               attrs: { href: "/contact" }
             },
             [_vm._v("Contact")]
-          )
+          ),
+          _vm._v(" "),
+          _vm.isLogged
+            ? _c("span", [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600 cursor-pointer",
+                    on: { click: _vm.logout }
+                  },
+                  [_c("i", { staticClass: "fas fa-sign-out-alt" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    ref: "logoutForm",
+                    staticStyle: { display: "none" },
+                    attrs: {
+                      id: "logoutForm",
+                      action: "/logout",
+                      method: "POST"
+                    }
+                  },
+                  [
+                    _c("input", {
+                      attrs: { type: "hidden", name: "_token" },
+                      domProps: { value: _vm.token }
+                    })
+                  ]
+                )
+              ])
+            : _vm._e()
         ]
       )
     ]
