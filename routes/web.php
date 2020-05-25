@@ -38,3 +38,5 @@ Route::post('/blog/articles', 'ArticleController@store')->middleware('auth');
 Route::get('/blog/articles/{article}/edit', 'ArticleController@edit')->middleware('auth');
 Route::put('/blog/articles/{article}', 'ArticleController@update')->middleware('auth');
 Route::delete('/blog/articles/{article}', 'ArticleController@destroy')->middleware('auth');
+
+Route::post('/blog/tags/', 'TagsController@store');

@@ -32,10 +32,24 @@ class ArticleController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
         
         $article = new Article($this->validation());
+
+        if($request->hasFile('cover_image')) {
+            $filename = $request->file('cover_image')->getClientOriginalName();
+            $extension = $request->file('cover_image')->extension();
+
+            $fileNameToStore = $filename."_".time().".".$extension;
+
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = "noimage.jpg";
+        }
+
+        $article->cover_image = $fileNameToStore;
+
         $article->save();
 
         $article->tags()->attach(request('tags'));
@@ -84,8 +98,9 @@ class ArticleController extends Controller
         return request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => ['required', 'min:3'],
+            'cover_image' => 'image|nullable|max:1999',
             'body' => ['required', 'min:50'],
-            'tags' => 'exists:tags,id'
+            'tags' => 'exists:tags,id',
         ]);
     }
 }
