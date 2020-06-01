@@ -19,7 +19,7 @@
             </div>
             <div class="m-2 flex flex-col">
                 <label for="body">Body</label>
-                <textarea name="body" class="border rounded border-gray-200 p-1 focus:border-blue-200 resize-none" id="body" rows="3"></textarea>
+                <editor></editor>
             </div>
             <div class="m-2 flex flex-col">
                 <label for="cover_image">Cover Image</label>
