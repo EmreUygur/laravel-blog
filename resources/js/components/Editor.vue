@@ -12,9 +12,15 @@
         components: {
             ckeditor: CKEditor.component
         },
+        props: {
+            body: {
+                required: false,
+                default: ""
+            }
+        },
         data() {
             return {
-                editorData: '<p>Content of the editor.</p>',
+                editorData: this.body,
                 editorConfig: { }
             };
         }

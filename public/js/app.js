@@ -1965,9 +1965,15 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     ckeditor: ckeditor4_vue__WEBPACK_IMPORTED_MODULE_0___default.a.component
   },
+  props: {
+    body: {
+      required: false,
+      "default": ""
+    }
+  },
   data: function data() {
     return {
-      editorData: '<p>Content of the editor.</p>',
+      editorData: this.body,
       editorConfig: {}
     };
   }
