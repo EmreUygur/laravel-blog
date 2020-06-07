@@ -1974,7 +1974,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       editorData: this.body,
-      editorConfig: {}
+      editorConfig: {
+        fillEmptyBlocks: false
+      }
     };
   }
 });
@@ -2060,10 +2062,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     selected: {
-      required: false
+      required: false,
+      "default": []
     },
     all: {
       required: false
@@ -20586,7 +20595,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "app" } },
     [
       _c("ckeditor", {
         attrs: { config: _vm.editorConfig },
@@ -20769,68 +20777,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "tags-container" },
-      [
-        _vm._l(_vm.selectedTags, function(tag) {
-          return _c("div", { key: tag.id, staticClass: "tag" }, [
-            _c("span", [_vm._v(_vm._s(tag.name))]),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "fas fa-times",
-              on: {
-                click: function($event) {
-                  return _vm.discardTag(tag.id)
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "tags-container" },
+        [
+          _vm._l(_vm.selectedTags, function(tag) {
+            return _c("div", { key: tag.id, staticClass: "tag" }, [
+              _c("span", [_vm._v(_vm._s(tag.name))]),
+              _vm._v(" "),
+              _c("i", {
+                staticClass: "fas fa-times",
+                on: {
+                  click: function($event) {
+                    return _vm.discardTag(tag.id)
+                  }
                 }
+              })
+            ])
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.newTag,
+                expression: "newTag"
               }
-            })
-          ])
-        }),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+            ],
+            domProps: { value: _vm.newTag },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.newTag = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.newTag,
-              expression: "newTag"
-            }
-          ],
-          domProps: { value: _vm.newTag },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.newTag = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "px-2 py-1 bg-gray-200",
-            attrs: { type: "button" },
-            on: { click: _vm.addTag }
-          },
-          [_vm._v("Add")]
-        )
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("input", {
-      attrs: { type: "hidden", id: "tags[]", name: "tags[]" },
-      domProps: {
-        value: _vm.selectedTags.map(function(tag) {
-          return tag.id
+              staticClass: "px-2 py-1 bg-gray-200",
+              attrs: { type: "button" },
+              on: { click: _vm.addTag }
+            },
+            [_vm._v("Add")]
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.selectedTags, function(tag, index) {
+        return _c("input", {
+          key: index,
+          attrs: { name: "tags[" + index + "]", type: "hidden" },
+          domProps: { value: tag.id }
         })
-      }
-    })
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
