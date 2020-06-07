@@ -90,10 +90,10 @@ class ArticleController extends Controller
             $fileNameToStore = $filename."_".time().".".$extension;
 
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            $article->cover_image = $fileNameToStore;
             if($article->cover_image != 'noimage.jpg') {
                 Storage::delete('public/cover_images/'.$article->cover_image);
             }
+            $article->cover_image = $fileNameToStore;
         }
 
         $article->tags()->detach();
