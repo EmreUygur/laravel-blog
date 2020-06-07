@@ -8,7 +8,13 @@
             <input v-model="newTag" />
             <button type="button" class="px-2 py-1 bg-gray-200" @click="addTag">Add</button>
         </div>
-        <input type="hidden" id="tags[]" name="tags[]" :value="selectedTags.map(tag => tag.id)">
+        <!-- <input type="hidden" id="tags[]" name="tags[]" :value="selectedTags.map(tag => tag.id)"> -->
+        <input 
+            v-for="(tag, index) in selectedTags" 
+            v-bind:key="index" 
+            :name="'tags['+ index + ']'" 
+            type="hidden" 
+            :value="tag.id" >
     </div>
 </template>
 
@@ -16,7 +22,8 @@
 export default {
     props: {
         selected: {
-            required: false
+            required: false,
+            default: []
         },
         all: {
             required: false
