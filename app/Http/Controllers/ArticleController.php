@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -75,9 +76,25 @@ class ArticleController extends Controller
     }
 
 
-    public function update(Article $article)
+    public function update(Request $request, $id)
     {
-        $article->update($this->validation());
+        $article = Article::find($id);
+        
+        $this->validation();
+
+        
+        if($request->hasFile('cover_image')) {
+            $filename = $request->file('cover_image')->getClientOriginalName();
+            $extension = $request->file('cover_image')->extension();
+
+            $fileNameToStore = $filename."_".time().".".$extension;
+
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            $article->cover_image = $fileNameToStore;
+            if($article->cover_image != 'noimage.jpg') {
+                Storage::delete('public/cover_images/'.$article->cover_image);
+            }
+        }
 
         $article->tags()->detach();
         $article->tags()->attach(request('tags'));
@@ -89,6 +106,9 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
+        if($article->cover_image != 'noimage.jpg') {
+            Storage::delete('public/cover_images/'.$article->cover_image);
+        }
         $article->delete();
 
         return redirect('/blog');    
