@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div>
         <ckeditor v-model="editorData" :config="editorConfig"></ckeditor>
         <input type="hidden" name="body" :value="editorData">
     </div>
@@ -21,7 +21,9 @@
         data() {
             return {
                 editorData: this.body,
-                editorConfig: { }
+                editorConfig: {
+                    fillEmptyBlocks: false
+                }
             };
         }
     }
