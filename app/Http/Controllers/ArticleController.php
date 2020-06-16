@@ -95,6 +95,11 @@ class ArticleController extends Controller
             }
             $article->cover_image = $fileNameToStore;
         }
+        
+        $article->title = $request->title;
+        $article->excerpt = $request->excerpt;
+        $article->body = $request->body;
+        $article->save();
 
         $article->tags()->detach();
         $article->tags()->attach(request('tags'));
