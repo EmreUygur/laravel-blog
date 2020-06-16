@@ -26,8 +26,14 @@ class BiographyController extends Controller
 
     public function edit () 
     {
+        $biography = Biography::first();
+
+        if($biography == NULL) {
+            return view('about/biography/create');
+        }
+
         return view('about/biography/edit', [
-            'biography' => Biography::first()
+            'biography' => $biography
         ]);
     }
 
