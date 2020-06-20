@@ -16,6 +16,8 @@ Route::get('/', 'MainController@home');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
 
+Route::post('/contact', 'MainController@submitContact');
+
 Route::get('/about/biography/create', 'BiographyController@create');
 Route::post('/about/biography', 'BiographyController@store');
 Route::get('/about/biography/edit', 'BiographyController@edit');
