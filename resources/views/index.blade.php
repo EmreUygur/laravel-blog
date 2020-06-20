@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('layoutTitile')
+@section('layoutTitle')
     Home
 @endsection
 

@@ -18,7 +18,7 @@ class TagsController extends Controller
         ]));
 
         return response()->json([
-            'message' => 'New post created'
+            'message' => 'New tag created'
         ]);
     }
 }
