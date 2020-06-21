@@ -46,4 +46,10 @@ class JobController extends Controller
   
       return redirect('/about');
     }
+
+    public function destroy(Job $job) {
+      $job->delete();
+
+      return redirect('/about');
+    }
 }

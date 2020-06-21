@@ -27,11 +27,13 @@ Route::get('/about/job/create', 'JobController@create');
 Route::post('/about/job', 'JobController@store');
 Route::get('/about/job/{job}/edit', 'JobController@edit');
 Route::put('/about/job/{job}', 'JobController@update');
+Route::delete('/about/job/{job}', 'JobController@destroy');
 
 Route::get('/about/education/create', 'EducationController@create');
 Route::post('/about/education', 'EducationController@store');
 Route::get('/about/education/{education}/edit', 'EducationController@edit');
 Route::put('/about/education/{education}', 'EducationController@update');
+Route::delete('/about/education/{education}', 'EducationController@destroy');
 
 Route::get('/blog', 'ArticleController@index');
 Route::get('/blog/articles/create', 'ArticleController@create')->middleware('auth');

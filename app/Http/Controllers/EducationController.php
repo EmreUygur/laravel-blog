@@ -51,4 +51,10 @@ class EducationController extends Controller
   
         return redirect('/about');
     }
+
+    public function destroy(Education $education) {
+      $education->delete();
+
+      return redirect('/about');
+    }
 }

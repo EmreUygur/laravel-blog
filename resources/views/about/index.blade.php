@@ -12,7 +12,7 @@
                     <img class="w-1/4 rounded-full mr-2" draggable="false" src="{{ asset('images/avatar.jpg') }}" alt="avatar">
                     <div class="text-2xl font-semibold select-none"><i class="fas fa-terminal"></i> whoami</div>
                 </div>
-                <div>
+                <div class="mb-12">
                     @if ($biography)
                         {!! $biography->biography !!}
                         @auth
@@ -53,6 +53,18 @@
                                     <div class="company-title text-xl font-medium">{{ $job->company }}</div>
                                     <div class="font-normal text-gray-600 text-lg px-1">{{ $job->position }}</div>
                                     <div class="font-normal text-gray-600 text-md px-1">{{ $job->started_at }} - {{ $job->quitted_at }}</div>
+                                    <div class="flex flex-row px-1">
+                                        <div class="mr-2">
+                                            <a href="/about/job/{{ $job->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form action="/about/job/{{ $job->id }}" method="POST">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         @else
@@ -60,11 +72,6 @@
                                 No working experience information entered yet...
                             </div>
                         @endif
-                        {{-- @auth
-                            <div class="mt-2 py-2 px-4 border-t border-gray-200 absolute inset-x-0 bottom-0">
-                                <a href="/about/job/create" class="text-sm text-blue-400 hover:underline">Add working experience</a>
-                            </div>
-                        @endauth --}}
                     </div>                
                 </div>
             </div>
@@ -93,6 +100,18 @@
                                     @if($education->note)
                                         <div class="gda text-gray-600 text-sm px-1">{{ $education->note }}</div>
                                     @endif
+                                    <div class="flex flex-row px-1">
+                                        <div class="mr-2">
+                                            <a href="/about/education/{{ $education->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form action="/about/education/{{ $education->id }}" method="POST">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         @else
