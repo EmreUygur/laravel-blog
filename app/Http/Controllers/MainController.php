@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Biography;
 use App\Job;
 use App\Education;
+use App\Mail\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -42,17 +43,9 @@ class MainController extends Controller
             "message" => "required|min:5"
         ]);
 
-        $data = [
-            "name" => request("name"),
-            "email" => request("email"),
-            "body" => request("message")
-        ];
-
-        Mail::send("email.index", $data, function ($message) {
-            $message->to("emre.uygur@outlook.com")
-                ->from("eemreuygur@gmail.com", "www.emre-uygur.com")
-                ->subject("Contact Form submitted by ".request("name"));
-        });
+        Mail::to("emre.uygur@outlook.com")
+            // ->cc("emreuygurcbu@gmail.com")
+            ->send(new Contact(request("name"), request("email"), request("message")));
 
         return view('contact')->with('successMsg', 'Form successfully sent!');
     }
