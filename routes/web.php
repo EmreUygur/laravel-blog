@@ -12,7 +12,9 @@
 */
 Auth::routes();
 
+
 Route::get('/', 'MainController@home');
+Route::get('/dashboard', 'MainController@dashboard')->middleware('auth');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
 

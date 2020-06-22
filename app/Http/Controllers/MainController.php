@@ -16,6 +16,11 @@ class MainController extends Controller
     {
         return view('index');
     }
+
+    public function dashboard () 
+    {
+        return view('dashboard');
+    }
     
     public function about()
     {
