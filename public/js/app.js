@@ -2019,6 +2019,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     isLogged: Boolean,
@@ -2026,8 +2045,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      menuToggle: false
+      menuToggle: false,
+      ddToggle: false
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    var handleESC = function handleESC(e) {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        _this.ddToggle = false;
+      }
+    };
+
+    document.addEventListener('keydown', handleESC);
+    this.$once('hook:beforeDestroy', function () {
+      removeEventListener('keydown', handleESC);
+    });
+    mr - 2;
   },
   methods: {
     logout: function logout(event) {
@@ -20641,7 +20676,7 @@ var render = function() {
     "header",
     {
       staticClass:
-        "bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30 select-none"
+        "bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-10 select-none"
     },
     [
       _c(
@@ -20719,15 +20754,85 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.isLogged
-            ? _c("span", [
+            ? _c("span", { staticClass: "relative select-none" }, [
+                _c("div", { staticClass: "hidden sm:block" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "block relative z-50 px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600 cursor-pointer",
+                      on: {
+                        click: function($event) {
+                          _vm.ddToggle = !_vm.ddToggle
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-user" })]
+                  ),
+                  _vm._v(" "),
+                  _vm.ddToggle
+                    ? _c("div", {
+                        staticClass:
+                          "fixed inset-0 bg-gray-500 w-full h-full opacity-25",
+                        on: {
+                          click: function($event) {
+                            _vm.ddToggle = false
+                          }
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.ddToggle
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "absolute right-0 w-48 bg-gray-200 text-gray-700 rounded-lg py-2 mt-2 shadow-lg"
+                        },
+                        [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "block px-4 py-2 hover:bg-indigo-500 hover:text-gray-200 cursor-pointer",
+                              on: { click: _vm.logout }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fas fa-sign-out-alt mr-2"
+                              }),
+                              _vm._v(" Logout\n          ")
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
                 _c(
-                  "a",
+                  "div",
                   {
                     staticClass:
-                      "block px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-gray-600 cursor-pointer",
-                    on: { click: _vm.logout }
+                      "block sm:hidden mt-2 pt-2 border-t border-gray-200"
                   },
-                  [_c("i", { staticClass: "fas fa-sign-out-alt" })]
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "block px-2 hover:bg-gray-600 cursor-pointer",
+                        on: { click: _vm.logout }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sign-out-alt mr-2" }),
+                        _vm._v(" Logout\n        ")
+                      ]
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -20755,7 +20860,40 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "block px-4 py-2 hover:bg-indigo-500 hover:text-gray-200",
+        attrs: { href: "/dashboard" }
+      },
+      [
+        _c("i", { staticClass: "fas fa-address-card mr-2" }),
+        _vm._v(" Dashboard\n          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "block px-2 hover:bg-gray-600",
+        attrs: { href: "/dashboard" }
+      },
+      [
+        _c("i", { staticClass: "fas fa-address-card mr-2" }),
+        _vm._v(" Dashboard\n        ")
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
