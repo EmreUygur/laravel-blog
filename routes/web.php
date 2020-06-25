@@ -14,11 +14,15 @@ Auth::routes();
 
 
 Route::get('/', 'MainController@home');
-Route::get('/dashboard', 'MainController@dashboard')->middleware('auth');
 Route::get('/about', 'MainController@about');
 Route::get('/contact', 'MainController@contact');
-
 Route::post('/contact', 'MainController@submitContact');
+
+
+Route::get('/dashboard', 'MainController@dashboard')->middleware('auth');
+Route::put('/dashboard/userinfo/{id}', 'MainController@updateUser')->middleware('auth');
+Route::put('/dashboard/password/{id}', 'MainController@changePassword')->middleware('auth');
+Route::put('/dashboard/avatar/{id}', 'MainController@changeAvatar');
 
 Route::get('/about/biography/create', 'BiographyController@create');
 Route::post('/about/biography', 'BiographyController@store');

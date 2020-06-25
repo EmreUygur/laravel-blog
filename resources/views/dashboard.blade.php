@@ -6,8 +6,6 @@
 
 @section('layoutContent')
     <div class="mt-6">
-        <div class="text-gray-700 text-2xl">
-            Welcome, {{ Auth::user()->name }}
-        </div>
+        <Dashboard name="{{ Auth::user()->name }}" email="{{ Auth::user()->email }}" identity="{{ Auth::user()->id }}"></Dashboard>
     </div>
 @endsection
