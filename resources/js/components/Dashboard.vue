@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="flex flex-wrap w-full items-stetch">
-            <div class="p-2 w-1/3 lg:w-1/4">
+            <div class="p-2 w-full md:w-1/2 lg:w-1/4">
                 <div class="flex flex-col w-full py-4 bg-white rounded-lg shadow-lg">
                     <div class="px-3 py-4 flex flex-col items-center lg:flex-row lg:items-end">
                         <img class="rounded-full w-1/2 lg:w-1/4 lg:mr-4" src="/images/avatar.jpg" alt="avatar">
-                        <div class="flex flex-col">
+                        <div class="flex flex-col text-center lg:text-left">
                             <div class="text-gray-500">Dashboard</div>
                             <div class="text-gray-700 text-lg font-semibold">{{ currentName }}</div>
                         </div>
@@ -20,20 +20,20 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 w-2/3 lg:w-3/4">
+            <div class="p-2 w-full md:w-1/2 lg:w-3/4">
                 <div class="flex flex-col text-gray-700 w-full py-4 bg-white rounded-lg shadow-lg">
                     <div class="text-xl font-semibold ml-4 mb-4">
                         {{ pages[selected].name }}
                     </div>
-                    <div class="pl-6 pr-2">
+                    <div class="pr-2 pl-2 lg:pl-6">
                         <div v-bind:class="[(selected == 0) ? 'block' : 'hidden']">
                             <div class="flex flex-col my-4">
                                 <label class="text-sm font-semibold mb-1" for="name">Name</label>
-                                <input type="text" name="name" :placeholder="currentName" v-model="user.name" class="border rounded border-gray-200 p-1 focus:border-blue-200 w-64" >
+                                <input type="text" name="name" :placeholder="currentName" v-model="user.name" class="border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64" >
                             </div>
                             <div class="flex flex-col my-4">
                                 <label class="text-sm font-semibold mb-1" for="email">Email</label>
-                                <input type="email" name="email" :placeholder="currentEmail" v-model="user.email" class="border rounded border-gray-200 p-1 focus:border-blue-200 w-64" >
+                                <input type="email" name="email" :placeholder="currentEmail" v-model="user.email" class="border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64" >
                             </div>
                             <div class="my-4">
                                 <button @click="submitUserInfo()" class="px-2 py-1 bg-blue-600 text-white rounded focus:border-blue-200">Save Changes</button>
@@ -50,15 +50,15 @@
                         <div v-bind:class="[(selected == 2) ? 'block' : 'hidden']">
                             <div class="flex flex-col my-4">
                                 <label class="text-sm font-semibold mb-1" for="password">Old Password</label>
-                                <input type="password" name="password" v-model="password.old" class="border rounded border-gray-200 p-1 focus:border-blue-200 w-64" >
+                                <input type="password" name="password" v-model="password.old" class="border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64" >
                             </div>
                             <div class="flex flex-col my-4">
                                 <label class="text-sm font-semibold mb-1" for="newPassword">New Password</label>
-                                <input type="password" name="newPassword" v-model="password.new" class="border rounded border-gray-200 p-1 focus:border-blue-200 w-64" >
+                                <input type="password" name="newPassword" v-model="password.new" class="border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64" >
                             </div>
                             <div class="flex flex-col my-4">
                                 <label class="text-sm font-semibold mb-1" for="confirmPassword">Confirm Password</label>
-                                <input type="password" name="confirmPassword" v-model="password.confirm" class="border rounded border-gray-200 p-1 focus:border-blue-200 w-64" >
+                                <input type="password" name="confirmPassword" v-model="password.confirm" class="border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64" >
                             </div>
                             <div class="my-4">
                                 <button @click="changePassword()" class="px-2 py-1 bg-blue-600 text-white rounded focus:border-blue-200">Change Password</button>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col m-3 fixed bottom-0 right-0 w-full lg:w-64">
+            <div class="flex flex-col m-3 fixed bottom-0 right-0 left-0 lg:left-auto lg:w-64">
                 <span
                     v-for="(alert, index) in alerts" 
                     :key="index" 

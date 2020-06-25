@@ -21036,7 +21036,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "flex flex-wrap w-full items-stetch" }, [
-      _c("div", { staticClass: "p-2 w-1/3 lg:w-1/4" }, [
+      _c("div", { staticClass: "p-2 w-full md:w-1/2 lg:w-1/4" }, [
         _c(
           "div",
           {
@@ -21056,17 +21056,21 @@ var render = function() {
                   attrs: { src: "/images/avatar.jpg", alt: "avatar" }
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "flex flex-col" }, [
-                  _c("div", { staticClass: "text-gray-500" }, [
-                    _vm._v("Dashboard")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "text-gray-700 text-lg font-semibold" },
-                    [_vm._v(_vm._s(_vm.currentName))]
-                  )
-                ])
+                _c(
+                  "div",
+                  { staticClass: "flex flex-col text-center lg:text-left" },
+                  [
+                    _c("div", { staticClass: "text-gray-500" }, [
+                      _vm._v("Dashboard")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "text-gray-700 text-lg font-semibold" },
+                      [_vm._v(_vm._s(_vm.currentName))]
+                    )
+                  ]
+                )
               ]
             ),
             _vm._v(" "),
@@ -21095,7 +21099,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-2 w-2/3 lg:w-3/4" }, [
+      _c("div", { staticClass: "p-2 w-full md:w-1/2 lg:w-3/4" }, [
         _c(
           "div",
           {
@@ -21111,7 +21115,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "pl-6 pr-2" }, [
+            _c("div", { staticClass: "pr-2 pl-2 lg:pl-6" }, [
               _c("div", { class: [_vm.selected == 0 ? "block" : "hidden"] }, [
                 _c("div", { staticClass: "flex flex-col my-4" }, [
                   _c(
@@ -21133,7 +21137,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border rounded border-gray-200 p-1 focus:border-blue-200 w-64",
+                      "border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64",
                     attrs: {
                       type: "text",
                       name: "name",
@@ -21171,7 +21175,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border rounded border-gray-200 p-1 focus:border-blue-200 w-64",
+                      "border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64",
                     attrs: {
                       type: "email",
                       name: "email",
@@ -21252,7 +21256,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border rounded border-gray-200 p-1 focus:border-blue-200 w-64",
+                      "border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64",
                     attrs: { type: "password", name: "password" },
                     domProps: { value: _vm.password.old },
                     on: {
@@ -21286,7 +21290,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border rounded border-gray-200 p-1 focus:border-blue-200 w-64",
+                      "border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64",
                     attrs: { type: "password", name: "newPassword" },
                     domProps: { value: _vm.password.new },
                     on: {
@@ -21320,7 +21324,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border rounded border-gray-200 p-1 focus:border-blue-200 w-64",
+                      "border rounded border-gray-300 p-1 focus:border-blue-300 w-full lg:w-64",
                     attrs: { type: "password", name: "confirmPassword" },
                     domProps: { value: _vm.password.confirm },
                     on: {
@@ -21358,7 +21362,8 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "flex flex-col m-3 fixed bottom-0 right-0 w-full lg:w-64"
+          staticClass:
+            "flex flex-col m-3 fixed bottom-0 right-0 left-0 lg:left-auto lg:w-64"
         },
         _vm._l(_vm.alerts, function(alert, index) {
           return _c(
