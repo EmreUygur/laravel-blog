@@ -67,7 +67,7 @@ export default {
 
     this.$once('hook:beforeDestroy', () => {
       removeEventListener('keydown', handleESC);
-    }); mr-2
+    });
   },
   methods: {
     logout: function (event) {
