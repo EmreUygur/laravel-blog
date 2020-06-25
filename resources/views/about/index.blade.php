@@ -53,18 +53,20 @@
                                     <div class="company-title text-xl font-medium">{{ $job->company }}</div>
                                     <div class="font-normal text-gray-600 text-lg px-1">{{ $job->position }}</div>
                                     <div class="font-normal text-gray-600 text-md px-1">{{ $job->started_at }} - {{ $job->quitted_at }}</div>
-                                    <div class="flex flex-row px-1">
-                                        <div class="mr-2">
-                                            <a href="/about/job/{{ $job->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                    @auth
+                                        <div class="flex flex-row px-1">
+                                            <div class="mr-2">
+                                                <a href="/about/job/{{ $job->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                            </div>
+                                            <div>
+                                                <form action="/about/job/{{ $job->id }}" method="POST">
+                                                    @csrf
+                                                    @method("DELETE")
+                                                    <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <form action="/about/job/{{ $job->id }}" method="POST">
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    @endauth
                                 </div>
                             @endforeach
                         @else
@@ -100,18 +102,20 @@
                                     @if($education->note)
                                         <div class="gda text-gray-600 text-sm px-1">{{ $education->note }}</div>
                                     @endif
-                                    <div class="flex flex-row px-1">
-                                        <div class="mr-2">
-                                            <a href="/about/education/{{ $education->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                    @auth
+                                        <div class="flex flex-row px-1">
+                                            <div class="mr-2">
+                                                <a href="/about/education/{{ $education->id }}/edit" class="text-sm text-blue-400 hover:underline">Edit</a>
+                                            </div>
+                                            <div>
+                                                <form action="/about/education/{{ $education->id }}" method="POST">
+                                                    @csrf
+                                                    @method("DELETE")
+                                                    <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <form action="/about/education/{{ $education->id }}" method="POST">
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="text-sm text-blue-400 hover:underline">Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    @endauth
                                 </div>
                             @endforeach
                         @else
