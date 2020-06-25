@@ -2490,7 +2490,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".active-tab {\n  background-color: #4a5568;\n  color: #edf2f7;\n}\n.notification-nest {\n  position: fixed;\n  right: 15px;\n  bottom: 15px;\n  display: flex;\n  flex-direction: column-reverse;\n}\n.notification {\n  min-height: 100px;\n  min-width: 200px;\n  color: #f8f8f8;\n  padding: 1.25rem;\n  display: flex;\n  flex-direction: row;\n  align-items: flex-start;\n  padding: 10px;\n  margin-bottom: 15px;\n}\n.notification-nest .success {\n  background-color: #00c234;\n}\n.notification-nest .error {\n  background-color: #de0d0d;\n}\n", ""]);
+exports.push([module.i, ".active-tab {\n  background-color: #4a5568;\n  color: #edf2f7;\n}\n", ""]);
 
 // exports
 

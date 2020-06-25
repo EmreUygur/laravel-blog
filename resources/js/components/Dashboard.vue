@@ -232,32 +232,4 @@ export default {
         background-color: #4a5568;
         color: #edf2f7;
     }
-
-    .notification-nest {
-        position: fixed;
-        right: 15px;
-        bottom: 15px;
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .notification {
-        min-height: 100px;
-        min-width: 200px;
-        color: #f8f8f8;
-        padding: 1.25rem;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 10px;
-        margin-bottom: 15px;
-    }
-
-    .notification-nest .success {
-        background-color: #00c234;
-    }
-
-    .notification-nest .error {
-        background-color: #de0d0d;
-    }
 </style>
