@@ -74,6 +74,8 @@ export default {
     padding: 10px;
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 .tags-container .tag {
     padding: 5px;
