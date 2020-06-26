@@ -13992,6 +13992,25 @@ a, button {
   padding-bottom: 0;
 }
 
+.share-box {
+  margin: 0;
+  position: fixed;
+  bottom: 50%;
+  left: 0;
+  transform: translateY(50%);
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 640px) {
+  .share-box {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+  }
+}
+
 ::-webkit-input-placeholder {
   color: #edf2f7;
 }
