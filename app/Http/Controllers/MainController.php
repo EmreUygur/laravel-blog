@@ -82,6 +82,10 @@ class MainController extends Controller
 
         if (isset($request->name) && $request->name !== "") {
             $user->name = $request->name;
+            config(["app.name" => $request->name]);
+            \Artisan::call('cache:clear');
+            \Artisan::call('config:clear');
+            \Artisan::call('view:clear');
         }
         
         $user->save();
