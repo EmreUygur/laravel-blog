@@ -14,8 +14,8 @@ body {
     margin: 0;
 }
 
-a {
-    outline: none;
+a, button {
+    outline: 0 !important;
 }
 
 .bg-blogNav, .bg-tag {
