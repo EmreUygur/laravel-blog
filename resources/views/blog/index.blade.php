@@ -11,7 +11,7 @@
                 @foreach ($articles as $article)
                     <div class="flex flex-col mb-8">
                         <div class="text-3xl text-gray-700 font-semibold">
-                            <a class="outline-none" href="/blog/articles/{{ $article->id }}">{{ $article->title }}</a>
+                            <a class="outline-none" href="/blog/articles/{{ $article->slug }}">{{ $article->title }}</a>
                         </div>
                         <div class="flex flex-col text-gray-600 font-normal">
                             <p class="text-lg">

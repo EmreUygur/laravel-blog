@@ -28,6 +28,15 @@
                 @enderror
             </div>
             <div class="m-2 flex flex-col">
+                <label for="slug">Slug</label>
+                <input type="text" value="{{ old("slug") }}" class="border rounded border-gray-200 p-1 focus:border-blue-200" id="slug" name="slug" />
+                @error("slug")
+                    <p class="text-sm text-red-500 font-semibold">
+                        {{ $errors->first("slug") }}
+                    </p>
+                @enderror
+            </div>
+            <div class="m-2 flex flex-col">
                 <label for="body">Body</label>
                 <editor body="{!! old("body") !!}"></editor>
                 @error("body")

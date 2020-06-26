@@ -43,7 +43,7 @@ Route::delete('/about/education/{education}', 'EducationController@destroy');
 
 Route::get('/blog', 'ArticleController@index');
 Route::get('/blog/articles/create', 'ArticleController@create')->middleware('auth');
-Route::get('/blog/articles/{id}', 'ArticleController@show');
+Route::get('/blog/articles/{slug}', 'ArticleController@show');
 Route::post('/blog/articles', 'ArticleController@store')->middleware('auth');
 Route::get('/blog/articles/{article}/edit', 'ArticleController@edit')->middleware('auth');
 Route::put('/blog/articles/{article}', 'ArticleController@update')->middleware('auth');

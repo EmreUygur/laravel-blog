@@ -59,10 +59,10 @@ class ArticleController extends Controller
     }
 
 
-    public function show($id)
+    public function show($slug)
     {
         return view('blog.show', [
-            "article" => Article::find($id)
+            "article" => Article::where('slug', $slug)->firstOrFail()
         ]);
     }
 
@@ -98,6 +98,7 @@ class ArticleController extends Controller
         
         $article->title = $request->title;
         $article->excerpt = $request->excerpt;
+        $article->slug = $request->slug;
         $article->body = $request->body;
         $article->save();
 
@@ -123,6 +124,7 @@ class ArticleController extends Controller
         return request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => ['required', 'min:3'],
+            'slug' => "required|unique:articles|min:3",
             'cover_image' => 'image|nullable|max:1999',
             'body' => ['required', 'min:50'],
             'tags' => 'exists:tags,id',
