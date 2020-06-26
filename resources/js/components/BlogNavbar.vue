@@ -2,7 +2,7 @@
     <header class="bg-blogNav sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-30 select-none">
         <div class="flex justify-between items-center px-4 py-3 sm:p-0">
             <div class="flex">  
-                <a href="/" class="text-gray-700 font-bold text-lg pr-2 border-r-2 border-gray-700">Emre UYGUR</a>
+                <a href="/" class="text-gray-700 font-bold text-lg pr-2 border-r-2 border-gray-700">{{ name }}</a>
                 <a href="/blog" class="text-gray-700 font-bold text-lg ml-2">Blog</a>
             </div>
             <div v-bind:class="{change: menuToggle}" @click="menuToggle = !menuToggle" class="hamburger-menu-container inline-block sm:hidden">
@@ -50,7 +50,8 @@
 <script>
 export default {
     props: {
-        isLogged: Boolean
+        isLogged: Boolean,
+        name: String
     },
     data () {
         return {

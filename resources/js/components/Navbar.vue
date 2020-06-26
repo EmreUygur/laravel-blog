@@ -1,7 +1,7 @@
 <template>
     <header class="bg-gray-700 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full top-0 z-10 select-none">
       <div class="flex justify-between items-center px-4 py-3 sm:p-0">
-        <div class="text-gray-200 font-bold text-lg">Emre UYGUR</div>
+        <div class="text-gray-200 font-bold text-lg">{{ name }}</div>
         <div v-bind:class="{change: menuToggle}" @click="menuToggle = !menuToggle" class="hamburger-menu-container inline-block sm:hidden">
             <div class="bar1 bg-gray-200"></div>
             <div class="bar2 bg-gray-200"></div>
@@ -48,12 +48,13 @@
 export default {
   props: {
     isLogged: Boolean,
-    token: String
+    name: String
   },
   data () {
       return {
-          menuToggle: false,
-          ddToggle: false
+        token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        menuToggle: false,
+        ddToggle: false
       }
   },
   created () {
