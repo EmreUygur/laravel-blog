@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <BlogNav></BlogNav>
+    <BlogNav @auth {{ __('is-logged') }} @endauth></BlogNav>
     <div class="mx-8 mb-8 mt-24 sm:m-16">
         @yield('layoutContent')
     </div>

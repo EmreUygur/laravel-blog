@@ -16,16 +16,66 @@
                 <input type="text" class="bg-transparent w-full p-1 border-b border-gray-700 text-sm" placeholder="Search here" >
                 <i class="fas fa-search cursor-pointer"></i>
             </div>
+            <span v-if="isLogged" class="relative select-none">
+                <div class="hidden sm:block">
+                    <a @click="ddToggle = !ddToggle" class="block relative z-50 px-2 mt-1 sm:mt-0 sm:ml-2 hover:bg-yellow-200 cursor-pointer">
+                    <i class="fas fa-user"></i>
+                    </a>
+                    <div v-if="ddToggle" @click="ddToggle = false" class="fixed inset-0 bg-gray-500 w-full h-full opacity-25"></div>
+                    <div v-if="ddToggle" class="absolute right-0 w-48 bg-gray-200 text-gray-700 rounded-lg py-2 mt-2 shadow-lg">
+                    <a href="/dashboard" class="block px-4 py-2 hover:bg-indigo-500 hover:text-gray-200">
+                        <i class="fas fa-address-card mr-2"></i> Dashboard
+                    </a>
+                    <a @click="logout" class="block px-4 py-2 hover:bg-indigo-500 hover:text-gray-200 cursor-pointer">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    </a>
+                    </div>
+                </div>
+                <div class="block sm:hidden mt-2 pt-2 border-t border-gray-200">
+                    <a href="/dashboard" class="block px-2">
+                    <i class="fas fa-address-card mr-2"></i> Dashboard
+                    </a>
+                    <a @click="logout" class="block px-2 cursor-pointer">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    </a>
+                </div>
+                <form id="logoutForm" ref="logoutForm" action="/logout" method="POST" style="display: none;">
+                    <input type="hidden" name="_token" v-bind:value="token">
+                </form>
+            </span>
         </div>
     </header>
 </template>
 
 <script>
 export default {
+    props: {
+        isLogged: Boolean
+    },
     data () {
         return {
+            token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             menuToggle: false,
-            searchToggle: false
+            ddToggle: false,
+        }
+    },
+    created () {
+        const handleESC = (e) => {
+            if (e.key === 'Esc' || e.key === 'Escape') {
+                this.ddToggle = false
+            }
+        }
+
+        document.addEventListener('keydown', handleESC);
+
+        this.$once('hook:beforeDestroy', () => {
+        removeEventListener('keydown', handleESC);
+        });
+    },
+    methods: {
+        logout: function (event) {
+            event.preventDefault();
+            this.$refs.logoutForm.submit();
         }
     }
 }
