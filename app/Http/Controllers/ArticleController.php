@@ -13,14 +13,28 @@ class ArticleController extends Controller
     public function index()
     {
         if (request('tag')) {
-            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
+            $tag = Tag::where('name', request('tag'))->firstOrFail();
+            $articles = $tag->articles;
+            $title = "Articles related with ".$tag->name;
+        }else if( request("search") !== NULL && request("search") != "") {
+            $articles = Article::where("title", "LIKE", "%".request("search")."%")
+                ->orWhere("excerpt", "LIKE", "%".request("search")."%")->latest()->get();
+
+            if (count($articles)) {
+                $title = "Search results for '".request("search")."'";
+            } else {
+                $title = "No results found for '".request("search")."'";
+                $articles = Article::latest()->get();
+            }
         } else {
             $articles = Article::latest()->get();
+            $title = NULL;
         }
 
         return view('blog.index', [
             "articles" => $articles,
-            "tags" => Tag::all()
+            "tags" => Tag::all(),
+            "title" => $title
         ]);
     }
 
