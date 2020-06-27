@@ -2002,8 +2002,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     isLogged: Boolean,
@@ -2012,7 +2010,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      searchKey: "",
       menuToggle: false,
       ddToggle: false
     };
@@ -2035,10 +2032,6 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout(event) {
       event.preventDefault();
       this.$refs.logoutForm.submit();
-    },
-    search: function search() {
-      if (this.searchKey === "" || this.searchKey === null) return;
-      window.location.replace("/blog?search=" + this.searchKey);
     }
   }
 });
@@ -21078,38 +21071,7 @@ var render = function() {
           class: { hidden: !_vm.menuToggle }
         },
         [
-          _c(
-            "div",
-            { staticClass: "flex flex-row px-2 items-center w-full sm:w-48" },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.searchKey,
-                    expression: "searchKey"
-                  }
-                ],
-                staticClass:
-                  "bg-transparent w-full p-1 border-b border-gray-700 text-sm",
-                attrs: { placeholder: "Search here" },
-                domProps: { value: _vm.searchKey },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.searchKey = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.search } }, [
-                _c("i", { staticClass: "fas fa-search" })
-              ])
-            ]
-          ),
+          _vm._m(0),
           _vm._v(" "),
           _vm.isLogged
             ? _c("span", { staticClass: "relative select-none" }, [
@@ -21148,7 +21110,7 @@ var render = function() {
                             "absolute right-0 w-48 bg-gray-200 text-gray-700 rounded-lg py-2 mt-2 shadow-lg"
                         },
                         [
-                          _vm._m(0),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c(
                             "a",
@@ -21169,21 +21131,28 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "block sm:hidden mt-2 pt-2 " }, [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "block px-2 cursor-pointer",
-                      on: { click: _vm.logout }
-                    },
-                    [
-                      _c("i", { staticClass: "fas fa-sign-out-alt mr-2" }),
-                      _vm._v(" Logout\n                ")
-                    ]
-                  )
-                ]),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "block sm:hidden mt-2 pt-2 border-t border-gray-200"
+                  },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "block px-2 cursor-pointer",
+                        on: { click: _vm.logout }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sign-out-alt mr-2" }),
+                        _vm._v(" Logout\n                ")
+                      ]
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -21211,6 +21180,24 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-row px-2 items-center w-full sm:w-48" },
+      [
+        _c("input", {
+          staticClass:
+            "bg-transparent w-full p-1 border-b border-gray-700 text-sm",
+          attrs: { type: "text", placeholder: "Search here" }
+        }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-search cursor-pointer" })
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

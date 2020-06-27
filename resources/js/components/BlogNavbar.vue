@@ -13,10 +13,8 @@
         </div>
         <div v-bind:class="{hidden: !menuToggle}" class="text-gray-700 font-semibold items-center px-2 pb-4 pt-1 sm:flex sm:p-0">
             <div class="flex flex-row px-2 items-center w-full sm:w-48">
-                <input v-model="searchKey" class="bg-transparent w-full p-1 border-b border-gray-700 text-sm" placeholder="Search here" >
-                <button @click="search">
-                    <i class="fas fa-search"></i>
-                </button>
+                <input type="text" class="bg-transparent w-full p-1 border-b border-gray-700 text-sm" placeholder="Search here" >
+                <i class="fas fa-search cursor-pointer"></i>
             </div>
             <span v-if="isLogged" class="relative select-none">
                 <div class="hidden sm:block">
@@ -33,7 +31,7 @@
                     </a>
                     </div>
                 </div>
-                <div class="block sm:hidden mt-2 pt-2 ">
+                <div class="block sm:hidden mt-2 pt-2 border-t border-gray-200">
                     <a href="/dashboard" class="block px-2">
                     <i class="fas fa-address-card mr-2"></i> Dashboard
                     </a>
@@ -58,7 +56,6 @@ export default {
     data () {
         return {
             token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            searchKey: "",
             menuToggle: false,
             ddToggle: false,
         }
@@ -73,18 +70,13 @@ export default {
         document.addEventListener('keydown', handleESC);
 
         this.$once('hook:beforeDestroy', () => {
-            removeEventListener('keydown', handleESC);
+        removeEventListener('keydown', handleESC);
         });
     },
     methods: {
         logout: function (event) {
             event.preventDefault();
             this.$refs.logoutForm.submit();
-        },
-        search: function () {
-            if (this.searchKey === "" || this.searchKey === null) return
-            
-            window.location.replace("/blog?search="+this.searchKey)
         }
     }
 }
