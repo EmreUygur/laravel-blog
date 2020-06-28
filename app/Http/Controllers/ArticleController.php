@@ -50,7 +50,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         
-        $article = new Article($this->validation());
+        $article = new Article($this->validation(NULL));
 
         if($request->hasFile('cover_image')) {
             $filename = $request->file('cover_image')->getClientOriginalName();
@@ -94,7 +94,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         
-        $this->validation();
+        $this->validation($id);
 
         
         if($request->hasFile('cover_image')) {
@@ -134,11 +134,11 @@ class ArticleController extends Controller
         return redirect('/blog');    
     }
 
-    protected function validation() {
+    protected function validation($id) {
         return request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => ['required', 'min:3'],
-            'slug' => "required|unique:articles|min:3",
+            'slug' => "required|min:3|unique:articles,slug,".$id,
             'cover_image' => 'image|nullable|max:1999',
             'body' => ['required', 'min:50'],
             'tags' => 'exists:tags,id',
