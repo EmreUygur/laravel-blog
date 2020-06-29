@@ -7,34 +7,23 @@
 @section('layoutContent')
     @if(count($articles))
         <div class="flex flex-wrap sm:mx-16 items-start">
-            <div class="flex flex-col w-full sm:pr-8 sm:w-4/5">
+            <div class="flex flex-col w-full sm:pr-8 md:w-4/5">
                 @if ($title !== NULL)
                     <div class="text-4xl font-semibold text-gray-700 mb-8">
                         {{ $title }}
                     </div>
                 @endif
                 @foreach ($articles as $article)
-                    <div class="flex flex-row w-full sm:1/2 p-6 mb-8 border border-gray-400 rounded">
-                        <div class="mr-4">
-                            <img class="w-48 h-full object-cover" src="/storage/cover_images/{{ $article->cover_image }}" alt="{{ $article->cover_image }}">
-                        </div>
-                        <div class="flex flex-col">
-                            <div class="text-3xl text-gray-700 font-semibold">
-                                <a class="outline-none" href="/blog/articles/{{ $article->slug }}">{{ $article->title }}</a>
-                            </div>
-                            <div class="flex flex-col text-gray-600 font-normal">
-                                <p class="text-lg">
-                                    {!! $article->excerpt !!}
-                                </p>
-                                <p class="text-sm mt-1">
-                                    {{ date_format($article->created_at, 'd/m/Y') }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <article-box 
+                        title="{{ $article->title}}"
+                        excerpt="{{ $article->excerpt }}"
+                        slug="{{ $article->slug }}"
+                        cover_image="{{ $article->cover_image }}"
+                        created_at="{{ date_format($article->created_at, 'd/m/Y') }}"
+                    ></article-box>
                 @endforeach
             </div>
-            <div class="tagsCard flex flex-col w-full sm:w-1/5 mt-4 sm:mt-0 rounded">
+            <div class="tagsCard flex flex-col w-full md:w-1/5 mt-4 md:mt-0 rounded">
                 <div class="tagsHeader p-2 mb-2">
                     Tags
                 </div>
