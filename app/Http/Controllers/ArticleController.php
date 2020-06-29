@@ -7,11 +7,27 @@ use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+
 class ArticleController extends Controller
 {
 
     public function index()
     {
+        SEOMeta::setTitle('Emre UYGUR | Blog');
+        SEOMeta::setDescription('Bits & pieces about software development');
+        SEOMeta::setCanonical('https://www.emre-uygur.com/blog');
+ 
+        OpenGraph::setDescription('Emre UYGUR | Blog');
+        OpenGraph::setTitle('Bits & pieces about software development');
+        OpenGraph::setUrl('https://www.emre-uygur.com/blog');
+        OpenGraph::addProperty('type', 'articles');
+ 
+        Twitter::setTitle('Emre UYGUR | Blog');
+        Twitter::setSite('@eemreuygur');
+
         if (request('tag')) {
             $tag = Tag::where('name', request('tag'))->firstOrFail();
             $articles = $tag->articles;
@@ -75,8 +91,29 @@ class ArticleController extends Controller
 
     public function show($slug)
     {
+        $article = Article::where('slug', $slug)->firstOrFail();
+
+        SEOMeta::setTitle($article->title);
+        SEOMeta::setDescription($article->excerpt);
+        SEOMeta::setCanonical('https://www.emre-uygur.com/blog/articles/'.$article->slug);
+        
+        $keywords = array();
+        foreach ($article->tags as $tag) {
+            array_push($keywords, $tag->name);
+        }
+        SEOMeta::addKeyword($keywords);
+ 
+        OpenGraph::setDescription($article->title);
+        OpenGraph::setTitle($article->excerpt);
+        OpenGraph::setUrl('https://www.emre-uygur.com/blog/articles/'.$article->slug);
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addImage('https://www.emre-uygur.com/storage/cover_images/'.$article->cover_image);
+ 
+        Twitter::setTitle('Emre UYGUR | Blog');
+        Twitter::setSite('@eemreuygur');
+
         return view('blog.show', [
-            "article" => Article::where('slug', $slug)->firstOrFail()
+            "article" => $article
         ]);
     }
 

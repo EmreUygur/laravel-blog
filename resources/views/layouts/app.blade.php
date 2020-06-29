@@ -8,6 +8,11 @@
         <title>@yield('title', 'Laravel Blog')</title>
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('fontawesome-free-5.13.0-web/css/all.css') }}">
+        
+        {{-- SEO --}}
+        {!! SEOMeta::generate() !!}
+        {!! OpenGraph::generate() !!}
+        {!! Twitter::generate() !!}
     </head>
     <body style="background-color: @yield('bg-color', '#f8f8f8')">
         <div id="app">

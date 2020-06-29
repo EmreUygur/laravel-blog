@@ -12,12 +12,27 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use SEOMeta;
+use OpenGraph;
+use Twitter;
 
 
 class MainController extends Controller
 {
     public function home () 
     {
+        SEOMeta::setTitle('Home');
+        SEOMeta::setDescription('Bits & pieces about software development');
+        SEOMeta::setCanonical('https://www.emre-uygur.com');
+ 
+        OpenGraph::setDescription('Emre UYGUR | Computer Engineer');
+        OpenGraph::setTitle('Bits & pieces about software development');
+        OpenGraph::setUrl('https://www.emre-uygur.com');
+        OpenGraph::addProperty('type', 'articles');
+ 
+        Twitter::setTitle('Emre UYGUR | Computer Engineer');
+        Twitter::setSite('@eemreuygur');
+
         return view('index');
     }
 
@@ -28,6 +43,19 @@ class MainController extends Controller
     
     public function about()
     {
+
+        SEOMeta::setTitle('About Me');
+        SEOMeta::setDescription('Get the know about me');
+        SEOMeta::setCanonical('https://www.emre-uygur.com/about');
+ 
+        OpenGraph::setDescription('About Me');
+        OpenGraph::setTitle('Get the know about me');
+        OpenGraph::setUrl('https://www.emre-uygur.com/about');
+        OpenGraph::addProperty('type', 'articles');
+ 
+        Twitter::setTitle('About Me');
+        Twitter::setSite('@eemreuygur');
+
         $biography = Biography::first();
         $jobs = Job::orderby('id', 'desc')->get();
         $educations = Education::orderby('finished_at', 'desc')->get();
@@ -42,6 +70,18 @@ class MainController extends Controller
 
     public function contact() 
     {
+        SEOMeta::setTitle('Contact Me');
+        SEOMeta::setDescription('I would be happy if you contact with me');
+        SEOMeta::setCanonical('https://www.emre-uygur.com/contact');
+ 
+        OpenGraph::setDescription('Contact Me');
+        OpenGraph::setTitle('I would be happy if you contact with me');
+        OpenGraph::setUrl('https://www.emre-uygur.com/contact');
+        OpenGraph::addProperty('type', 'articles');
+ 
+        Twitter::setTitle('Contact Me');
+        Twitter::setSite('@eemreuygur');
+
         return view('contact');
     }
 
