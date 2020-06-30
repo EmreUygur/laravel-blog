@@ -74,8 +74,8 @@ class MainController extends Controller
         SEOMeta::setDescription('I would be happy if you contact with me');
         SEOMeta::setCanonical('https://www.emre-uygur.com/contact');
  
-        OpenGraph::setDescription('Contact Me');
-        OpenGraph::setTitle('I would be happy if you contact with me');
+        OpenGraph::setTitle('Contact Me');
+        OpenGraph::setDescription('I would be happy if you contact with me');
         OpenGraph::setUrl('https://www.emre-uygur.com/contact');
         OpenGraph::addProperty('type', 'articles');
  
@@ -92,7 +92,7 @@ class MainController extends Controller
             "message" => "required|min:5"
         ]);
 
-        Mail::to("emre.uygur@outlook.com")
+        Mail::to(env("MAIL_TO_ADDRESS"))
             ->send(new Contact(request("name"), request("email"), request("message")));
 
         return view('contact')->with('successMsg', 'Form successfully sent!');
