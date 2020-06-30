@@ -39,7 +39,8 @@
             </div>
             <div class="m-2 flex flex-col">
                 <label for="body">Body</label>
-                <editor body="{!! $article->body !!}"></editor>
+                <textarea name="body" id="body" class="border rounded border-gray-200 p-1 focus:border-blue-200" rows="3">{!! $article->body !!}</textarea>
+                {{-- <editor body="{!! $article->body !!}"></editor> --}}
                 @error("body")
                     <p class="text-sm text-red-500 font-semibold">
                         {{ $errors->first("body") }}
