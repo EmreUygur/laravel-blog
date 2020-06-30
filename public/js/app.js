@@ -2496,8 +2496,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       url: location.href
     };
-  },
-  methods: {}
+  }
 });
 
 /***/ }),
@@ -22084,34 +22083,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "share-box bg-gray-200 text-gray-700" }, [
+    _c(
+      "a",
+      {
+        staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200",
+        attrs: {
+          href:
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+            _vm.url +
+            "&t=&quote=",
+          target: "_blank"
+        }
+      },
+      [_c("i", { staticClass: "fab fa-facebook text-2xl" })]
+    ),
+    _vm._v(" "),
+    _c(
+      "a",
+      {
+        staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200",
+        attrs: {
+          href: "https://twitter.com/intent/tweet?text=" + _vm.url,
+          target: "_blank"
+        }
+      },
+      [_c("i", { staticClass: "fab fa-twitter text-2xl" })]
+    ),
+    _vm._v(" "),
+    _c(
+      "a",
+      {
+        staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200",
+        attrs: {
+          href:
+            "https://www.linkedin.com/uas/login?session_redirect=" + _vm.url,
+          target: "_blank"
+        }
+      },
+      [_c("i", { staticClass: "fab fa-linkedin text-2xl" })]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "share-box bg-gray-200 text-gray-700" }, [
-      _c(
-        "button",
-        { staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200" },
-        [_c("i", { staticClass: "fab fa-facebook text-2xl" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200" },
-        [_c("i", { staticClass: "fab fa-twitter text-2xl" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "p-4 hover:bg-gray-700 hover:text-gray-200" },
-        [_c("i", { staticClass: "fab fa-whatsapp text-2xl" })]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
