@@ -96,15 +96,16 @@ class ArticleController extends Controller
         SEOMeta::setTitle($article->title);
         SEOMeta::setDescription($article->excerpt);
         SEOMeta::setCanonical('https://www.emre-uygur.com/blog/articles/'.$article->slug);
-        
-        $keywords = array();
-        foreach ($article->tags as $tag) {
-            array_push($keywords, $tag->name);
+        if(count($article->tags)){
+            $keywords = array();
+            foreach ($article->tags as $tag) {
+                array_push($keywords, $tag->name);
+            }
+            SEOMeta::addKeyword($keywords);
         }
-        SEOMeta::addKeyword($keywords);
  
-        OpenGraph::setDescription($article->title);
-        OpenGraph::setTitle($article->excerpt);
+        OpenGraph::setTitle($article->title);
+        OpenGraph::setDescription($article->description);
         OpenGraph::setUrl('https://www.emre-uygur.com/blog/articles/'.$article->slug);
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addImage('https://www.emre-uygur.com/storage/cover_images/'.$article->cover_image);
