@@ -66,6 +66,16 @@ a, button {
     display: flex;
     flex-direction: column;
 }
+
+.article-body p, .article-body div{
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.article-body p:last-child,  .article-body div:last-child {
+    margin: 0rem;
+}
+
 @media only screen and (max-width: 640px) {
     .share-box {
         bottom: 0;
