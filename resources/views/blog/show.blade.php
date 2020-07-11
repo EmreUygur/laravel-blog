@@ -16,7 +16,7 @@
         <div class="text-xl font-medium mb-2">{{ $article->excerpt }}</div>
         <div class="article-body">{!! $article->body !!}</div>
         @if (count($article->tags))
-            <div class="mt-6 mb-12 flex flex-wrap border-t-4 border-gray-400">
+            <div class="mt-6 mb-12 sm:mb-6 flex flex-wrap">
                 @foreach ($article->tags as $tag)
                     <div class="text-medium mr-2 pt-3">
                         <a href="/blog?tag={{ $tag->name }}" class="bg-tag py-1 px-2 rounded text-sm mr-2"> {{ $tag->name }}</a>
