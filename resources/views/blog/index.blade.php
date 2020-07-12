@@ -23,7 +23,7 @@
                     ></article-box>
                 @endforeach
                 
-                <pagination :currentpage="{{ $articles->currentPage() }}" :numofpages="{{ $articles->lastPage() }}"></pagination>
+                <pagination :currentpage="{{ $articles->currentPage() ? $articles->currentPage() : '' }}" :numofpages="{{ $articles->lastPage() }}"></pagination>
             
             </div>
             <div class="tagsCard flex flex-col w-full md:w-1/5 mt-4 md:mt-0 rounded">

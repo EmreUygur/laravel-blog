@@ -1,5 +1,5 @@
 <template>
-    <div class="pagination">
+    <div class="pagination" v-if="numofpages > 1">
         <a href="/blog?page=1" v-if="(currentpage - 2) >= 1" class="page-element">
             <i class="fas fa-chevron-left"></i>
         </a>

@@ -22086,44 +22086,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "pagination" },
-    [
-      _vm.currentpage - 2 >= 1
-        ? _c(
-            "a",
-            { staticClass: "page-element", attrs: { href: "/blog?page=1" } },
-            [_c("i", { staticClass: "fas fa-chevron-left" })]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.pageList, function(n) {
-        return _c(
-          "a",
-          {
-            key: n,
-            staticClass: "page-element",
-            class: [n === _vm.currentpage ? "active" : ""],
-            attrs: { href: "/blog?page=" + n }
-          },
-          [_vm._v("\n        " + _vm._s(n) + "\n    ")]
-        )
-      }),
-      _vm._v(" "),
-      _vm.currentpage + 2 <= _vm.numofpages
-        ? _c(
-            "a",
-            {
-              staticClass: "page-element",
-              attrs: { href: "/blog?page=" + _vm.numofpages }
-            },
-            [_c("i", { staticClass: "fas fa-chevron-right" })]
-          )
-        : _vm._e()
-    ],
-    2
-  )
+  return _vm.numofpages > 1
+    ? _c(
+        "div",
+        { staticClass: "pagination" },
+        [
+          _vm.currentpage - 2 >= 1
+            ? _c(
+                "a",
+                {
+                  staticClass: "page-element",
+                  attrs: { href: "/blog?page=1" }
+                },
+                [_c("i", { staticClass: "fas fa-chevron-left" })]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.pageList, function(n) {
+            return _c(
+              "a",
+              {
+                key: n,
+                staticClass: "page-element",
+                class: [n === _vm.currentpage ? "active" : ""],
+                attrs: { href: "/blog?page=" + n }
+              },
+              [_vm._v("\n        " + _vm._s(n) + "\n    ")]
+            )
+          }),
+          _vm._v(" "),
+          _vm.currentpage + 2 <= _vm.numofpages
+            ? _c(
+                "a",
+                {
+                  staticClass: "page-element",
+                  attrs: { href: "/blog?page=" + _vm.numofpages }
+                },
+                [_c("i", { staticClass: "fas fa-chevron-right" })]
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

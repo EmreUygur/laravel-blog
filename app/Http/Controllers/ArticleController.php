@@ -30,25 +30,24 @@ class ArticleController extends Controller
 
         if (request('tag')) {
             $tag = Tag::where('name', request('tag'))->firstOrFail();
-            $articles = $tag->articles;
+            $articles = $tag->articles();
             $title = "Articles related with ".$tag->name;
         }else if( request("search") !== NULL && request("search") != "") {
             $articles = Article::where("title", "LIKE", "%".request("search")."%")
                 ->orWhere("excerpt", "LIKE", "%".request("search")."%")->latest();
-
-            if (count($articles)) {
+            if (count($articles->get())) {
                 $title = "Search results for '".request("search")."'";
             } else {
                 $title = "No results found for '".request("search")."'";
                 $articles = Article::latest();
             }
         } else {
-            $articles = Article::latest()->paginate(1);
+            $articles = Article::latest();
             $title = NULL;
         }
 
         return view('blog.index', [
-            "articles" => $articles,
+            "articles" => $articles->paginate(5),
             "tags" => Tag::all(),
             "title" => $title
         ]);
