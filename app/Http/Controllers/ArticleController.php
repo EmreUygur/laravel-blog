@@ -34,16 +34,16 @@ class ArticleController extends Controller
             $title = "Articles related with ".$tag->name;
         }else if( request("search") !== NULL && request("search") != "") {
             $articles = Article::where("title", "LIKE", "%".request("search")."%")
-                ->orWhere("excerpt", "LIKE", "%".request("search")."%")->latest()->get();
+                ->orWhere("excerpt", "LIKE", "%".request("search")."%")->latest();
 
             if (count($articles)) {
                 $title = "Search results for '".request("search")."'";
             } else {
                 $title = "No results found for '".request("search")."'";
-                $articles = Article::latest()->get();
+                $articles = Article::latest();
             }
         } else {
-            $articles = Article::latest()->get();
+            $articles = Article::latest()->paginate(1);
             $title = NULL;
         }
 

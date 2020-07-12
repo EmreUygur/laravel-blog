@@ -13946,8 +13946,21 @@ video {
   transition-duration: 1000ms;
 }
 
+@font-face {
+  font-family: Ubuntu;
+
+  src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: Lato;
+
+  src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
 body {
   margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
 a, button {
@@ -14023,6 +14036,28 @@ a, button {
   transform: translateY(50%);
   display: flex;
   flex-direction: column;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination .page-element {
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  background-color: #f8f8f8;
+  border: 1px #838383 solid;
+  border-left: none;
+  font-weight: 600;
+  transition: background-color 0.25s ease-out;
+}
+
+.pagination .page-element:first-child {
+  border-left: 1px #838383 solid;
+}
+
+.pagination .page-element.active, .pagination .page-element:hover {
+  background-color: #fff133;
 }
 
 .article-body p, .article-body div.gist {

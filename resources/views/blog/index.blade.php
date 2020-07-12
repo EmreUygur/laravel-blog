@@ -22,6 +22,9 @@
                         created_at="{{ date_format($article->created_at, 'd/m/Y') }}"
                     ></article-box>
                 @endforeach
+                
+                <pagination :currentpage="{{ $articles->currentPage() }}" :numofpages="{{ $articles->lastPage() }}"></pagination>
+            
             </div>
             <div class="tagsCard flex flex-col w-full md:w-1/5 mt-4 md:mt-0 rounded">
                 <div class="tagsHeader p-2 mb-2">
